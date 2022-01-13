@@ -1,26 +1,25 @@
-# untitled1
+# react-native-environment
 
-A new Flutter project.
+## usage
+After cloning the repository, you have to initialize and create react-native project using expo at first as following command:
+```sh
+docker exec -it app bash
+expo init <app>
+# <app> is your app-name.
+```
 
-## Getting Started
+Then, you have to exec following command to run app.
 
-This project is a starting point for a Flutter application.
+```sh
+cd app
+expo start
+```
 
-A few resources to get you started if this is your first Flutter project:
+if your workspace is not local directory such as ec2, 
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+```sh
+cd app
+expo start --tunnel
+```
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-
-
-# 開発方法
-
-wsl単体でflutter開発は結構ハードルが高そうなので、windows上のファイルを更新し、PowerShellでflutterをビルドする
-flutter-sdkを利用
-1. wslで開発 mnt/c/...で、windows上のフォルダにシンボリックリンクを張る
-1. PowerShellを開いて対象開発フォルダまで移動
-1. PowerShellでflutter run
-1. wsl上で更新したら、PowerShellで`r`でhot reload
+After all, you can see QR code and scan it by the ExpoGo app in your mobile phone, your app is running in your devices.
