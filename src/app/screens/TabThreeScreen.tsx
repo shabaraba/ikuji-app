@@ -1,27 +1,32 @@
-import React from 'react';
-import { RootTabScreenProps } from '../types';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StyleSheet } from 'react-native';
 
-// import { Text, View } from '../components/Themed';
-
-// import Memory from '../screens/MemoryScreen';
-import MemoryCalendar from '../screens/MemoryCalendarScreen';
-
-
-//HomeとDetailをStackNavigatorとして構成する
-const Stack = createNativeStackNavigator();
+import EditScreenInfo from '../components/EditScreenInfo';
+import { Text, View } from '../components/Themed';
 
 export default function TabThreeScreen() {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Calendar">
-                <Stack.Screen
-                    name="Calendar"
-                    component={MemoryCalendar}
-                    options={{ title: 'Welcome' }}
-                />
-            </Stack.Navigator>
-        </NavigationContainer>
-    );
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Tab Two</Text>
+      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
+      <EditScreenInfo path="/screens/TabTwoScreen.tsx" />
+    </View>
+  );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
+  separator: {
+    marginVertical: 30,
+    height: 1,
+    width: '80%',
+  },
+});
+

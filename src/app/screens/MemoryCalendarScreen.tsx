@@ -1,11 +1,12 @@
 import React, {useState, useEffect} from 'react';
-import { StyleSheet, FlatList, ListRenderItem } from 'react-native';
+import { StyleSheet, FlatList, ListRenderItem, Button } from 'react-native';
 import {Calendar,  CalendarProps} from 'react-native-calendars';
 
 import { format } from 'date-fns';
 
 import DummyData from '../test/dummy_data.json';
 import { Text, View } from '../components/Themed';
+import { RootTabScreenProps } from '../types';
 
 interface MemoryHead {
     id: number
@@ -13,7 +14,7 @@ interface MemoryHead {
     date: Date
 }
 
-export default function MemoryCalendarScreen() {
+export default function MemoryCalendarScreen({ navigation }: RootTabScreenProps<'MemoryCalendar'>) {
     const [selected, setSelected] = useState<Date>(new Date('2022-01-01'));
     const [memoryList, setMemoryList] = useState<MemoryHead[]>();
 
@@ -39,6 +40,9 @@ export default function MemoryCalendarScreen() {
         <View style={styles.container}>
             <View>
                 <Text>{item.title}</Text>
+                <Button
+                  title="press me"
+                  onPress = {() => navigation.navigate('MemoryScreen')} />
             </View>
         </View>
     );
