@@ -6,6 +6,7 @@
 import { BottomTabScreenProps } from '@react-navigation/bottom-tabs';
 import { CompositeScreenProps, NavigatorScreenParams } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import type { MemoryHead } from './entities/Memories';
 
 declare global {
   namespace ReactNavigation {
@@ -13,11 +14,12 @@ declare global {
   }
 }
 
+// navigateしたいモジュール名: 取りうる引数
 export type RootStackParamList = {
+  NotFound: undefined;
   Root: NavigatorScreenParams<RootTabParamList> | undefined;
   Modal: undefined;
-  MemoryScreen: undefined;
-  NotFound: undefined;
+  MemoryScreen: MemoryHead | undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> = NativeStackScreenProps<
